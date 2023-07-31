@@ -1,0 +1,51 @@
+[{
+  "_id": {
+    "$oid": "6456fce97f428ba6e77c3a8a"
+  },
+  "nombre": "Gerson",
+  "apellido": "Mendoza",
+  "correo": "gerson@unah.hn",
+  "password": "gerson8888",
+  "celular": 95951010,
+  "ordenes": [
+    {
+      "nombreCliente": "julian",
+      "nombreProducto": "coca cola",
+      "descripcion": "coca cola en lata",
+      "cantidad": 2,
+      "precio": 25
+    },
+    {
+      "nombreCliente": "marcela",
+      "nombreProducto": "pizza",
+      "descripcion": "Pizza clasica de peperoni",
+      "cantidad": 2,
+      "precio": 99
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "6456fcea7f428ba6e77c3a8b"
+  },
+  "nombre": "Victor",
+  "apellido": "Figueroa",
+  "correo": "victor@unah.hn",
+  "password": "victor8888",
+  "celular": 88908800,
+  "ordenes": [
+    {
+      "nombreCliente": "Julia",
+      "nombreProducto": "coca cola",
+      "descripcion": "coca cola en lata",
+      "cantidad": 2,
+      "precio": 25
+    },
+    {
+      "nombreCliente": "Aracely",
+      "nombreProducto": "pizza",
+      "descripcion": "Pizza clasica de peperoni",
+      "cantidad": 2,
+      "precio": 99
+    }
+  ]
+}]

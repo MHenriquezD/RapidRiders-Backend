@@ -1,0 +1,17 @@
+[{
+  "_id": {
+    "$oid": "6453ec689f8fa2215bcc338b"
+  },
+  "id": 0,
+  "correo": "luis@unah.hn",
+  "password": "ask@unah98",
+  "direccion": "calle 8, avenida florencia"
+},{
+  "_id": {
+    "$oid": "6453ec689f8fa2215bcc338c"
+  },
+  "id": 1,
+  "correo": "juan@unah.hn",
+  "password": "ask@unah90",
+  "direccion": "calle 10, avenida paris"
+}]
