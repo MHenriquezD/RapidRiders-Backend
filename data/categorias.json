@@ -1,113 +1,406 @@
-[{
-  "_id": {
-    "$oid": "645553d19f8fa2215bcc3397"
-  },
-  "nombreCategoria": "Comidas",
-  "imagen": "img/comida.png",
-  "empresas": [
+[
     {
-      "nombreEmpresa": "Pizza Hat",
-      "imagen": "img/pizza.png",
-      "descripcion": "Numero 1 en Pizzas",
-      "calificacion": "4",
-      "productos": [
-        {
-          "imagen": "img/pizza.png",
-          "nombreProducto": "clasica",
-          "descripcion": "Pizza clasica de peperoni",
-          "precio": 99
-        },
-        {
-          "imagen": "img/pizza.png",
-          "nombreProducto": "superChesse",
-          "descripcion": "Pizza de queso con champinones",
-          "precio": 150
-        }
-      ]
-    }
-  ]
-},{
-  "_id": {
-    "$oid": "645553d19f8fa2215bcc3398"
-  },
-  "nombreCategoria": "Bebidas",
-  "imagen": "img/bebida.png",
-  "empresas": [
+        "id": 1,
+        "nombreCategoria": "Desayunos",
+        "icono": "recursos/img/iconos-categorias/img11.png",
+        "empresas": [
+            {
+                "id": 1,
+                "nombreEmpresa": "Burguer King",
+                "logo": "recursos/img/logos-empresas/KFC.png",
+                "imagen": "img/pizza.png",
+                "descripcion": "Hazlo a tu Manera",
+                "calificacion": 4,
+                "productos": [
+                    {
+                        "nombreProducto": "Croissanwich",
+                        "descripcion": "Sabor Rico",
+                        "imagenProducto": "pollo_camaron.png",
+                        "precio": 135
+                    },
+                    {
+                        "nombreProducto": "Panqueques",
+                        "descripcion": "Sabor Rico",
+                        "imagenProducto": "bufalo_nuggets.png",
+                        "precio": 111
+                    },
+                    {
+                        "nombreProducto": "Tostadas Francesas",
+                        "descripcion": "Sabor Rico",
+                        "imagenProducto": "big_box.png",
+                        "precio": 99
+                    },
+                    {
+                        "nombreProducto": "Bktracho",
+                        "descripcion": "Sabor Rico",
+                        "imagenProducto": "duo_kentucky.png",
+                        "precio": 145
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "nombreEmpresa": "Pollo Campero",
+                "logo": "recursos/img/logos-empresas/Chilis.png",
+                "imagen": "img/pizza.png",
+                "descripcion": "Pollo tierno,jugoso y crujiente",
+                "ubicacion": "Col. San Angel",
+                "calificacion": 5,
+                "productos": [
+                    {
+                        "nombreProducto": "Desayuno Campero",
+                        "descripcion": "Sabor Rico",
+                        "imagenProducto": "old_timer.png",
+                        "precio": 89
+                    },
+                    {
+                        "nombreProducto": "Desayunos Tipicos",
+                        "descripcion": "Sabor Rico",
+                        "imagenProducto": "caribean_salad.png",
+                        "precio": 300
+                    },
+                    {
+                        "nombreProducto": "Sadwich de Jamon y Queso",
+                        "descripcion": "Sabor Rico",
+                        "imagenProducto": "soap.png",
+                        "precio": 120
+                    },
+                    {
+                        "nombreProducto": "Omelette Tipico",
+                        "descripcion": "Sabor Rico",
+                        "imagenProducto": "White_Spinach_Queso",
+                        "precio": 195
+                    }
+                ]
+            },
+            {
+                "id": 3,
+                "nombreEmpresa": "McDonald's",
+                "logo": "recursos/img/logos-empresas/Pizza Hut.jpg",
+                "descripcion": "Me esta gustando y lo estoy amando",
+                "ubicacion": "Miraflores",
+                "calificacion": 4,
+                "productos": [
+                    {
+                        "nombreProducto": "Desayuno Deluxe",
+                        "descripcion": "Sabor Rico",
+                        "imagenProducto": "4_estaciones",
+                        "precio": 157
+                    },
+                    {
+                        "nombreProducto": "Egg McMuffin",
+                        "descripcion": "Sabor Rico",
+                        "imagenProducto": "Pizza_base_de_queso.png",
+                        "precio": 199
+                    },
+                    {
+                        "nombreProducto": "Hotcakes",
+                        "descripcion": "Sabor Rico",
+                        "imagenProducto": "Super_Suprema.png",
+                        "precio": 123
+                    },
+                    {
+                        "nombreProducto": "Burrito",
+                        "descripcion": "Sabor Rico",
+                        "imagenProducto": "Super_Suprema.png",
+                        "precio": 148
+                    }
+                ]
+            }
+        ]
+    },
     {
-      "nombreEmpresa": "Super 7",
-      "imagen": "img/puma.svg",
-      "descripcion": "Las Mejores bebidas",
-      "calificacion": "4",
-      "productos": [
-        {
-          "imagen": "img/coca.png",
-          "nombreProducto": "Coca cola",
-          "descripcion": "coca cola en lata",
-          "precio": 25
-        },
-        {
-          "imagen": "img/pepsi.png",
-          "nombreProducto": "Pepsi",
-          "descripcion": "Pepsi de 2 litros",
-          "precio": 100
-        }
-      ]
-    }
-  ]
-},{
-  "_id": {
-    "$oid": "645553d19f8fa2215bcc3399"
-  },
-  "nombreCategoria": "Farmacias",
-  "imagen": "img/farmacia.png",
-  "empresas": [
+        "id": 1,
+        "nombreCategoria": "Pizzas",
+        "icono": "recursos/img/iconos-categorias/img11.png",
+        "empresas": [
+            {
+                "id": 1,
+                "nombreEmpresa": "Pizza Hut",
+                "logo": "recursos/img/logos-empresas/KFC.png",
+                "imagen": "img/pizza.png",
+                "descripcion": "El gusto de estar juntos",
+                "calificacion": 4,
+                "productos": [
+                    {
+                        "nombreProducto": "Meat Lovers",
+                        "descripcion": "Sabor Exquisito",
+                        "imagenProducto": "pollo_camaron.png",
+                        "precio": 299
+                    },
+                    {
+                        "nombreProducto": "Full Extra",
+                        "descripcion": "Sabor Exquisito",
+                        "imagenProducto": "bufalo_nuggets.png",
+                        "precio": 189
+                    },
+                    {
+                        "nombreProducto": "4 Estaciones",
+                        "descripcion": "Sabor Exquisito",
+                        "imagenProducto": "big_box.png",
+                        "precio": 299
+                    },
+                    {
+                        "nombreProducto": "Super Suprema",
+                        "descripcion": "Sabor Exquisito",
+                        "imagenProducto": "duo_kentucky.png",
+                        "precio": 299
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "nombreEmpresa": "Little Caesars",
+                "logo": "recursos/img/logos-empresas/Chilis.png",
+                "descripcion": "pizza! pizza!",
+                "ubicacion": "Col. San Angel",
+                "calificacion": 5,
+                "productos": [
+                    {
+                        "nombreProducto": "Clasica Pepperoni",
+                        "descripcion": "Sabor Exquisito",
+                        "imagenProducto": "old_timer.png",
+                        "precio": 129
+                    },
+                    {
+                        "nombreProducto": "Clásica Jamón",
+                        "descripcion": "Sabor Exquisito",
+                        "imagenProducto": "caribean_salad.png",
+                        "precio": 139
+                    },
+                    {
+                        "nombreProducto": "Veggie",
+                        "descripcion": "Sabor Exquisito",
+                        "imagenProducto": "soap.png",
+                        "precio": 159
+                    },
+                    {
+                        "nombreProducto": "Ultimate Deluxe",
+                        "descripcion": "Sabor Exquisito",
+                        "imagenProducto": "White_Spinach_Queso",
+                        "precio": 179
+                    }
+                ]
+            },
+            {
+                "id": 3,
+                "nombreEmpresa": "Domino's",
+                "logo": "recursos/img/logos-empresas/Pizza Hut.jpg",
+                "imagen": "img/pizza.png",
+                "descripcion": "Elige tu piza favorita t te la llevamos hasta tu puerta",
+                "ubicacion": "Miraflores",
+                "calificacion": 4,
+                "productos": [
+                    {
+                        "nombreProducto": "Deluxe",
+                        "descripcion": "Sabor Exquisito",
+                        "imagenProducto": "4_estaciones",
+                        "precio": 299
+                    },
+                    {
+                        "nombreProducto": "Cheese Pizza",
+                        "descripcion": "Sabor Exquisito",
+                        "imagenProducto": "Pizza_base_de_queso.png",
+                        "precio": 199
+                    },
+                    {
+                        "nombreProducto": "Hawaiana",
+                        "descripcion": "Sabor Exquisito",
+                        "imagenProducto": "Super_Suprema.png",
+                        "precio": 279
+                    },
+                    {
+                        "nombreProducto": "pepperoni",
+                        "descripcion": "Sabor Exquisito",
+                        "imagenProducto": "Super_Suprema.png",
+                        "precio": 279
+                    }
+                ]
+            }
+        ]
+    },
     {
-      "nombreEmpresa": "Kielsa",
-      "imagen": "img/kielsa.png",
-      "descripcion": "La mejor variedad en medicinas",
-      "calificacion": "4",
-      "productos": [
-        {
-          "imagen": "img/gel.svg",
-          "nombreProducto": "Gel de manos",
-          "descripcion": "del para el cuidado de higiene",
-          "precio": 90
-        },
-        {
-          "imagen": "img/mascarilla.svg",
-          "nombreProducto": "Mascarilla",
-          "descripcion": "Mascarillas quirurjicas ",
-          "precio": 20
-        }
-      ]
-    }
-  ]
-},{
-  "_id": {
-    "$oid": "645553d19f8fa2215bcc339a"
-  },
-  "nombreCategoria": "Tiendas",
-  "imagen": "img/tienda.png",
-  "empresas": [
+        "id": 2,
+        "nombreCategoria": "Postres",
+        "icono": "recursos/img/iconos-categorias/img12.png",
+        "empresas": [
+            {
+                "id": 1,
+                "nombreEmpresa": "Dunkin Donuts",
+                "logo": "recursos/img/logos-empresas/Dunkin Donuts.png",
+                "imagen": "img/image.png",
+                "descripcion": "Disfruta las donas más deliciosas de Honduras acompañadas de las bebidas favoritas de Dunkin",
+                "ubicacion": "Cerro Grande",
+                "calificacion": 4,
+                "productos": [
+                    {
+                        "nombreProducto": " 50 Munchkins",
+                        "descripcion": "Sabor Rico",
+                        "imagenProducto": "munchkins.png",
+                        "precio": 109
+                    },
+                    {
+                        "nombreProducto": "Media Docena + 2 Dunkaccinos de Oreo",
+                        "descripcion": "Sabor Rico",
+                        "imagenProducto": "media_docena_donas.jpg",
+                        "precio": 199
+                    },
+                    {
+                        "nombreProducto": "3 Scoop Sundae",
+                        "descripcion": "Sabor Rico",
+                        "imagenProducto": "bagels.png",
+                        "precio":142
+                    },
+                    {
+                        "nombreProducto": "Dona + Café",
+                        "descripcion": "Sabor Rico",
+                        "imagenProducto": "bagels.png",
+                        "precio":67
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "nombreEmpresa": "KFC",
+                "logo": "recursos/img/logos-empresas/Cafemania.png",
+                "imagen": "img/image.png",
+                "descripcion": "Marca lider especializada en los productos de pollo.",
+                "ubicacion": "El Paraíso",
+                "calificacion": 4,
+                "productos": [
+                    {
+                        "nombreProducto": "APPLE PIE",
+                        "descripcion": "Sabor Rico",
+                        "imagenProducto": "mochaccino.jpg",
+                        "precio": 35
+                    },
+                    {
+                        "nombreProducto": "Mora Pie",
+                        "descripcion": "Sabor Rico",
+                        "imagenProducto": "granitas.jpg",
+                        "precio": 35
+                    }
+                ]
+            },
+            {
+                "id": 3,
+                "nombreEmpresa": "Grano de Oro",
+                "logo": "recursos/img/logos-empresas/La Baguete.jpg",
+                "descripcion": "Producimos pan dulce, pasteles calientes y helados, galletas, muffins, pedidos personalizados junto con otra variedad de pan como baguettes, pan artesanal y más.",
+                "ubicacion": "Blv. Fuerzas Armadas",
+                "calificacion": 5,
+                "productos": [
+                    {
+                        "nombreProducto": "Cheesecake Frutas",
+                        "descripcion": "Sabor Rico",
+                        "imagenProducto": "suspiro.webp",
+                        "precio": 70
+                    },
+                    {
+                        "nombreProducto": "Postre de yogurt de fresas",
+                        "descripcion": "Sabor Rico",
+                        "imagenProducto": "bowl.webp",
+                        "precio": 68
+                    },
+                    {
+                        "nombreProducto": "CheeseCake de Maracuyá",
+                        "descripcion": "Sabor Rico",
+                        "imagenProducto": "sheesecake.webp",
+                        "precio": 66
+                    }
+                ]
+            }
+        ]
+    },
     {
-      "nombreEmpresa": "Zara",
-      "imagen": "img/zara.png",
-      "descripcion": "La mejor variedad en Ropa",
-      "calificacion": "4",
-      "productos": [
-        {
-          "imagen": "img/camisa.png",
-          "nombreProducto": "Camisa",
-          "descripcion": "Camisa de cuello casual",
-          "precio": 350
-        },
-        {
-          "imagen": "img/jean.png",
-          "nombreProducto": "Jean",
-          "descripcion": "Pantalon azul ",
-          "precio": 800
-        }
-      ]
+        "id": 3,
+        "nombreCategoria": "Hamburguesas",
+        "icono": "recursos/img/iconos-categorias/img13.png",
+        "empresas": [
+            {
+                "id": 1,
+                "nombreEmpresa": "Burguer King",
+                "logo": "recursos/img/logos-empresas/Fit Gourmet.jpg",
+                "descripcion": "lo mejor en hamburguesas",
+                "ubicacion": "Col. Kennedy",
+                "calificacion": 5,
+                "productos": [
+                    {
+                        "nombreProducto": "Whopper",
+                        "descripcion": "Hamburguesa con un rico sabor",
+                        "imagenProducto": "ensalada_cebolla.png",
+                        "precio": 250
+                    },
+                    {
+                        "nombreProducto": "Bacon King Jr.",
+                        "descripcion": "Hamburguesa con un rico sabor",
+                        "imagenProducto": "ensalada_aguacate.png",
+                        "precio": 200
+                    },
+                    {
+                        "nombreProducto": "Bin King xl Doble",
+                        "descripcion": "Hamburguesa con un rico sabor",
+                        "imagenProducto": "almuerzo.png",
+                        "precio": 220
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "nombreEmpresa": "McDonald's",
+                "logo": "recursos/img/logos-empresas/Chafé Gourmet.jpg",
+                "descripcion": "La hora más feliz del día es la hora de comer.",
+                "ubicacion": "Col. Suyapa",
+                "calificacion": 5,
+                "productos": [
+                    {
+                        "nombreProducto": "Big Mac",
+                        "descripcion": "Hamburguesa con un rico sabor",
+                        "imagenProducto": "boquitas1.jpg",
+                        "precio": 250
+                    },
+                    {
+                        "nombreProducto": "Quesoburguesa",
+                        "descripcion": "Hamburguesa con un rico sabor",
+                        "imagenProducto": "boquitas1.jpg",
+                        "precio": 270
+                    },
+                    {
+                        "nombreProducto": "Big Taty Res",
+                        "descripcion": "Hamburguesa con un rico sabor",
+                        "imagenProducto": "galletas.jpg",
+                        "precio": 290
+                    }
+                ]
+            },
+            {
+                "id": 3,
+                "nombreEmpresa": "Denny's",
+                "logo": "recursos/img/logos-empresas/Factory.jpg",
+                "descripcion": "Comida Fabulosa, servicio Fabulosa, gente fabulosa",
+                "ubicacion": "Villas del Sol",
+                "calificacion": 4,
+                "productos": [
+                    {
+                        "nombreProducto": "Classic CheeseBurguer",
+                        "descripcion": "Hamburguesa con un rico sabor",
+                        "imagenProducto": "pasta_carne.png",
+                        "precio": 204
+                    },
+                    {
+                        "nombreProducto": "Spicy Sriracha Burguer",
+                        "descripcion": "Hamburguesa con un rico sabor",
+                        "imagenProducto": "longanizas.png",
+                        "precio": 250
+                    },
+                    {
+                        "nombreProducto": "Chicken Bacon Classic",
+                        "descripcion": "Hamburguesa con un rico sabor",
+                        "imagenProducto": "pinchos.png",
+                        "precio": 244
+                    }
+                ]
+            }
+        ]
     }
-  ]
-}]
+]
