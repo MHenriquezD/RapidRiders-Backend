@@ -5,7 +5,6 @@ import { ordenesUsuario } from './ordenesUsuario.model';
 
 export interface Usuario{
     _id?: mongoose.Types.ObjectId;
-    id?: number;
     nombre: string;
     apellido: string;
     identificacion: string;

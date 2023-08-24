@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.login = void 0;
 const clientes_schema_1 = require("../models/clientes.schema");
 const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const profile = yield clientes_schema_1.UserProfile.findOne({ nombre: req.body.usuario, contrasena: req.body.contrasena });
+    const profile = yield clientes_schema_1.UserProfile.findOne({ correoElectronico: req.body.usuario, contrasena: req.body.contrasena });
     if (profile) {
         res.send({ exito: true, mensaje: 'Inicio de sesión exitoso', usuario: profile });
     }

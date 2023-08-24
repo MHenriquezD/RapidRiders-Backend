@@ -1,6 +1,5 @@
 [
     {
-        "id": 1,
         "nombre": "Pedro",
         "apellido": "Martinez",
         "identificacion": "0801199578654",
@@ -16,7 +15,6 @@
         ]
     },
     {
-        "id": 2,
         "nombre": "Maria",
         "apellido": "Duarte",
         "identificacion": "0801199223454",
@@ -31,7 +29,6 @@
         "ordenes": []
     },
     {
-        "id": 3,
         "nombre": "Sara",
         "apellido": "Ochoa",
         "identificacion": "0801198978654",
@@ -45,7 +42,6 @@
         "ordenes": []
     },
     {
-        "id": 4,
         "nombre": "Julio",
         "apellido": "Lopez",
         "identificacion": "0801198978654",

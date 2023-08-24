@@ -115,7 +115,7 @@
         "icono": "recursos/img/iconos-categorias/img11.png",
         "empresas": [
             {
-                "id": 1,
+                "id": "5f9d9a3b9d3b9d3b9d3b9d3b",
                 "nombreEmpresa": "Pizza Hut",
                 "logo": "recursos/img/logos-empresas/KFC.png",
                 "imagen": "img/pizza.png",
@@ -149,7 +149,7 @@
                 ]
             },
             {
-                "id": 2,
+                "id": "5f9d9a3b9d3b9d3b9d3b9d3c",
                 "nombreEmpresa": "Little Caesars",
                 "logo": "recursos/img/logos-empresas/Chilis.png",
                 "descripcion": "pizza! pizza!",
@@ -183,7 +183,7 @@
                 ]
             },
             {
-                "id": 3,
+                "id": "5f9d9a3b9d3b9d3b9d3b9d3d",
                 "nombreEmpresa": "Domino's",
                 "logo": "recursos/img/logos-empresas/Pizza Hut.jpg",
                 "imagen": "img/pizza.png",
