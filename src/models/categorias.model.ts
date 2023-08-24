@@ -10,7 +10,7 @@ export interface Producto {
 
 
 export interface Empresa {
-    _id?: mongoose.Types.ObjectId;
+    id?: mongoose.Types.ObjectId;
     nombreEmpresa: string;
     logo: string;
     imagen: string;

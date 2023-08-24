@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import { Producto } from "./productos.model";
 
 export interface EmpresaModel {
-    _id?: mongoose.Types.ObjectId;
+    id?: mongoose.Types.ObjectId;
     nombreEmpresa: string;
     logo: string;
     imagen: string;

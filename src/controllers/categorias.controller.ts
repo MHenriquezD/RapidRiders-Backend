@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { Categorias } from '../models/categorias.schema';
-import { EmpresasSchema } from '../models/categorias.schema';
-import { Productos } from '../models/productos.schema';
+//import { EmpresasSchema } from '../models/categorias.schema';
+//import { Productos } from '../models/productos.schema';
 import mongoose from 'mongoose';
 
 export const cargarCategorias = async (req: Request, res: Response) => {
@@ -37,19 +37,35 @@ export const cargarEmpresasCategoria = async (req: Request, res: Response) => {
     res.end();
 }
 
-export const cargarEmpresa = (req: Request, res: Response) => {
-    Categorias.find({ _id: req.params.id }).then(result => {
-        const empresa = result[0].empresas?.find(empresa => empresa.id == req.params.idEmpresa);
 
-        res.send({ empresa: empresa });
-    }).catch(err => {
-        res.send(err);
-    });
+export const cargarEmpresa = async (req: Request, res: Response) => {
+    const categoria = await Categorias.findById(req.params.id);
+    if (categoria) {
+        const empresa = categoria.empresas?.find(empresa => empresa.id?.toString() == req.params.idEmpresa);
+        if (empresa) {
+            res.send({ status: true, empresa: empresa });
+        } else {
+            res.send({ status: false, message: 'Empresa no existe' });
+        }
+    } else {
+        res.send({ status: false, message: 'Categoria no existe' });
+    }
+    res.end();
 }
+
+// export const cargarEmpresa = (req: Request, res: Response) => {
+//     Categorias.find({ _id: req.params.id }).then(result => {
+//         const empresa = result[0].empresas?.find(empresa => empresa.id == req.params.idEmpresa);
+
+//         res.send({ empresa: empresa });
+//     }).catch(err => {
+//         res.send(err);
+//     });
+// }
 
 export const cargarProductosEmpresa = (req: Request, res: Response) => {
     Categorias.find({ _id: req.params.id }).then(result => {
-        const empresa = result[0].empresas?.find(empresa => empresa.id == req.params.idEmpresa);
+        const empresa = result[0].empresas?.find(empresa => empresa.id?.toString() == req.params.idEmpresa);
 
         res.send({
             empresa: empresa?.nombreEmpresa,
@@ -95,7 +111,7 @@ export const addProducto = async (req: Request, res: Response) => {
     }
     const categoria = await Categorias.findById(req.params.id);
     if (categoria) {
-        const empresa = categoria.empresas?.find(empresa => empresa.id == req.params.idEmpresa);
+        const empresa = categoria.empresas?.find(empresa => empresa.id?.toString() == req.params.idEmpresa);
         if (empresa) {
             empresa.productos?.push(producto);
             await categoria?.save();
