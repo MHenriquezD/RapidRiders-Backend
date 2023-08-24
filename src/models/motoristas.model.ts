@@ -1,5 +1,8 @@
 import mongoose from "mongoose";
 
+export interface ordenesMotoristas {
+    idOrden: mongoose.Types.ObjectId;
+}
 export interface Motorista {
     _id: mongoose.Types.ObjectId;
     nombre: string;
@@ -12,5 +15,5 @@ export interface Motorista {
     celular: string;
     descripcionVehiculo: string;
     placaVehiculo: string;
-    ordenes: Array<any>;
+    ordenes: Array<ordenesMotoristas>;
 }

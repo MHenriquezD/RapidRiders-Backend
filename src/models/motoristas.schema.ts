@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { Motorista } from "./motoristas.model";
+import { Motorista, ordenesMotoristas } from "./motoristas.model";
 
 const schema = new mongoose.Schema<Motorista>({
     nombre: String,
@@ -12,7 +12,7 @@ const schema = new mongoose.Schema<Motorista>({
     celular: String,
     descripcionVehiculo: String,
     placaVehiculo: String,
-    ordenes: Array<any>
+    ordenes: Array<ordenesMotoristas>
 });
 
 export const Motoristas = mongoose.model<Motorista>("motoristas", schema);

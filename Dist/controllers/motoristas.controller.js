@@ -8,9 +8,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.addMotorista = exports.login = exports.cargarMotoristas = void 0;
+exports.obtenerOrdenesMotoristas = exports.addPedido = exports.obtenerPedidos = exports.addMotorista = exports.login = exports.cargarMotoristas = void 0;
 const motoristas_schema_1 = require("../models/motoristas.schema");
+const mongoose_1 = __importDefault(require("mongoose"));
 const cargarMotoristas = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const motoristas = yield motoristas_schema_1.Motoristas.find();
     res.send(motoristas);
@@ -41,8 +45,47 @@ const addMotorista = (req, res) => __awaiter(void 0, void 0, void 0, function* (
         ordenes: []
     });
     yield nuevoMotorista.save();
-    res.send({ status: true, message: 'Motorista agregado correctamente', motorista: { nombre: req.body.nombre, apellido: req.body.apellido, correo: req.body.correo, placa: req.body.placa, tipoVehiculo: req.body.tipoVehiculo }
+    res.send({
+        status: true, message: 'Motorista agregado correctamente', motorista: { nombre: req.body.nombre, apellido: req.body.apellido, correo: req.body.correo, placa: req.body.placa, tipoVehiculo: req.body.tipoVehiculo }
     });
     res.end();
 });
 exports.addMotorista = addMotorista;
+const obtenerPedidos = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const motorista = yield motoristas_schema_1.Motoristas.findById(req.params.id);
+    if (motorista) {
+        res.send({ status: true, ordenes: motorista.ordenes });
+    }
+    else {
+        res.send({ status: false, message: 'Motorista no encontrado' });
+    }
+    res.end();
+});
+exports.obtenerPedidos = obtenerPedidos;
+const addPedido = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const resultado = yield motoristas_schema_1.Motoristas.updateOne({ _id: req.params.id }, {
+        $push: {
+            ordenes: {
+                _id: new mongoose_1.default.Types.ObjectId(req.body.idOrden)
+            }
+        }
+    });
+    res.send(resultado);
+    res.end();
+});
+exports.addPedido = addPedido;
+const obtenerOrdenesMotoristas = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const motorista = yield motoristas_schema_1.Motoristas.aggregate([
+        {
+            $lookup: {
+                from: 'pedidos',
+                localField: 'ordenes._id',
+                foreignField: '_id',
+                as: 'ordenesMotoristas',
+            },
+        },
+    ]);
+    res.send(motorista);
+    res.end();
+});
+exports.obtenerOrdenesMotoristas = obtenerOrdenesMotoristas;

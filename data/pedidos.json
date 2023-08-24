@@ -1,8 +1,8 @@
 [
     {
       "numeroOrden": "1",
-      "idCliente": "Pedro Martinez",
-      "idCorreo": "pedromartinez@gmail.com",
+      "_idCliente": 1,
+      "nombreCliente": "Pedro Martinez",
       "celularCliente": "+504 1111-1111",
       "ubicacion": "Villa Vieja",
       "productos" : 
@@ -30,12 +30,13 @@
       "comisionServicio": 22,
       "totalPrice": 1360,
       "estado": "Tomado",
-      "fechaSolicitud": "1/8/2023",
+      "fechaSolicitud": "2023-08-01",
       "fechaEntrega": "",
       "horaEntrega": ""
     },
     {
       "numeroOrden": "2",
+      "_idCliente": 2,
       "nombreCliente": "Maria Duarte",
       "correoCliente": "Maria@hotmail.com",
       "celularCliente": "+504 2222-2222",
@@ -65,8 +66,8 @@
     },
     {
       "numeroOrden": "3",
+      "_idCliente": 3,
       "nombreCliente": "Sara Ochoa",
-      "correoCliente": "saraochoa@gmail.com",
       "celularCliente": "+504 3333-3333",
       "ubicacion": "col. El pedregal, calle principal continuo a ferreteria indufesa",
       "productos" : 
@@ -88,8 +89,8 @@
     },
     {
       "numeroOrden": "4",
+      "_idCliente": 4,
       "nombreCliente": "Julio Lopez",
-      "correoCliente": "Julio@gmail.com",
       "celularCliente": "+504 4444-4444",
       "ubicacion": "Pedegral",
       "productos" : 

@@ -12,10 +12,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.addProducto = exports.addEmpresa = exports.cargarProductosEmpresa = exports.cargarEmpresa = exports.cargarEmpresasCategoria = exports.cargarCategoria = exports.addCategoria = exports.cargarCategorias = void 0;
+exports.eliminarCategoria = exports.addProducto = exports.addEmpresa = exports.cargarProductosEmpresa = exports.cargarEmpresa = exports.cargarEmpresasCategoria = exports.cargarCategoria = exports.addCategoria = exports.cargarCategorias = void 0;
 const categorias_schema_1 = require("../models/categorias.schema");
-//import { EmpresasSchema } from '../models/categorias.schema';
-//import { Productos } from '../models/productos.schema';
 const mongoose_1 = __importDefault(require("mongoose"));
 const cargarCategorias = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const categorias = yield categorias_schema_1.Categorias.find();
@@ -142,3 +140,11 @@ const addProducto = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
     res.end();
 });
 exports.addProducto = addProducto;
+const eliminarCategoria = (req, res) => {
+    categorias_schema_1.Categorias.deleteOne({ _id: req.params.id })
+        .then((removeResult) => {
+        res.send({ message: 'Registro eliminado', removeResult });
+        res.end();
+    });
+};
+exports.eliminarCategoria = eliminarCategoria;

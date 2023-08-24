@@ -1,5 +1,5 @@
 import express from 'express';
-import { addMotorista, cargarMotoristas } from '../controllers/motoristas.controller';
+import { addMotorista, addPedido, cargarMotoristas, obtenerOrdenesMotoristas, obtenerPedidos } from '../controllers/motoristas.controller';
 import { login } from '../controllers/clientes.controller';
 
 const router = express.Router();
@@ -8,5 +8,9 @@ const router = express.Router();
 router.get('/', cargarMotoristas);
 router.post('/login', login);
 router.post('/', addMotorista);
+router.post('/:id/ordenes', addPedido);
+router.get('/:id/ordenes', obtenerPedidos);
+router.get('/:id/ordenesmotorista', obtenerOrdenesMotoristas);
+
 
 export default router;

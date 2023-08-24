@@ -1,5 +1,5 @@
 import express from 'express';
-import { addCategoria, addEmpresa, addProducto, cargarCategoria, cargarCategorias, cargarEmpresa, cargarEmpresasCategoria, cargarProductosEmpresa } from '../controllers/categorias.controller';
+import { addCategoria, addEmpresa, addProducto, cargarCategoria, cargarCategorias, cargarEmpresa, cargarEmpresasCategoria, cargarProductosEmpresa, eliminarCategoria } from '../controllers/categorias.controller';
 const router = express.Router();
 
 // (GET) http://localhost:3000/categorias
@@ -11,6 +11,7 @@ router.get('/:id/empresas', cargarEmpresasCategoria);
 router.get('/:id/empresas/:idEmpresa', cargarEmpresa);
 router.get('/:id/empresas/:idEmpresa/productos', cargarProductosEmpresa);
 router.post('/:id/empresas/:idEmpresa/productos', addProducto);
+router.delete('/:id', eliminarCategoria);
 
 
 export default router;

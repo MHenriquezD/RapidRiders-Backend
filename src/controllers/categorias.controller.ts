@@ -1,7 +1,6 @@
 import { Request, Response } from 'express';
 import { Categorias } from '../models/categorias.schema';
-//import { EmpresasSchema } from '../models/categorias.schema';
-//import { Productos } from '../models/productos.schema';
+
 import mongoose from 'mongoose';
 
 export const cargarCategorias = async (req: Request, res: Response) => {
@@ -124,3 +123,11 @@ export const addProducto = async (req: Request, res: Response) => {
     }
     res.end();
 }
+
+export const eliminarCategoria = (req: Request, res: Response) => {
+    Categorias.deleteOne({_id: req.params.id})
+      .then((removeResult:any) => {
+          res.send({message: 'Registro eliminado', removeResult});
+          res.end();
+      });
+  }

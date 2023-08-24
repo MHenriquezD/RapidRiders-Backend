@@ -15,4 +15,5 @@ router.get('/:id/empresas', categorias_controller_1.cargarEmpresasCategoria);
 router.get('/:id/empresas/:idEmpresa', categorias_controller_1.cargarEmpresa);
 router.get('/:id/empresas/:idEmpresa/productos', categorias_controller_1.cargarProductosEmpresa);
 router.post('/:id/empresas/:idEmpresa/productos', categorias_controller_1.addProducto);
+router.delete('/:id', categorias_controller_1.eliminarCategoria);
 exports.default = router;

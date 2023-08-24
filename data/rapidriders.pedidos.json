@@ -1,0 +1,124 @@
+[{
+  "_id": {
+    "$oid": "64e6db4553425aca73de59dd"
+  },
+  "numeroOrden": "1",
+  "Cliente": "Pedro Martinez",
+  "Correo": "pedromartinez@gmail.com",
+  "celularCliente": "+504 1111-1111",
+  "ubicacion": "Villa Vieja",
+  "productos": [
+    {
+      "nombreProducto": "Whopper",
+      "descripcion": "Hamburguesa con un rico sabor",
+      "cantidad": 2,
+      "precio": 250
+    },
+    {
+      "nombreProducto": "Bin King xl Doble",
+      "descripcion": "Hamburguesa con un rico sabor",
+      "cantidad": 1,
+      "precio": 220
+    },
+    {
+      "nombreProducto": "Bacon King Jr.",
+      "descripcion": "Hamburguesa con un rico sabor",
+      "cantidad": 3,
+      "precio": 200
+    }
+  ],
+  "comisionGestion": 18,
+  "comisionServicio": 22,
+  "totalPrice": 1360,
+  "estado": "Tomado",
+  "fechaSolicitud": "1/8/2023",
+  "fechaEntrega": "",
+  "horaEntrega": ""
+},
+{
+  "_id": {
+    "$oid": "64e6db4553425aca73de59de"
+  },
+  "numeroOrden": "2",
+  "nombreCliente": "Maria Duarte",
+  "correoCliente": "Maria@hotmail.com",
+  "celularCliente": "+504 2222-2222",
+  "ubicacion": "Villa Nueva",
+  "productos": [
+    {
+      "nombreProducto": "50 Munchkins",
+      "descripcion": "Sabor Rico",
+      "cantidad": 2,
+      "precio": 218
+    },
+    {
+      "nombreProducto": "Media Docena + 2 Dunkaccinos de Oreo",
+      "descripcion": "Sabor Rico",
+      "cantidad": 1,
+      "precio": 199
+    }
+  ],
+  "comisionGestion": 10,
+  "comisionServicio": 15,
+  "totalPrice": 442,
+  "estado": "Tomado",
+  "fechaSolicitud": "1/8/2023",
+  "fechaEntrega": "",
+  "horaEntrega": ""
+},
+{
+  "_id": {
+    "$oid": "64e6db4553425aca73de59df"
+  },
+  "numeroOrden": "3",
+  "nombreCliente": "Sara Ochoa",
+  "correoCliente": "saraochoa@gmail.com",
+  "celularCliente": "+504 3333-3333",
+  "ubicacion": "col. El pedregal, calle principal continuo a ferreteria indufesa",
+  "productos": [
+    {
+      "nombreProducto": "Deluxe",
+      "descripcion": "sabor exquisito",
+      "cantidad": 1,
+      "precio": 299
+    }
+  ],
+  "comisionGestion": 10,
+  "comisionServicio": 15,
+  "totalPrice": 324,
+  "estado": "Pendiente",
+  "fechaSolicitud": "2/8/2023",
+  "fechaEntrega": "",
+  "horaEntrega": ""
+},
+{
+  "_id": {
+    "$oid": "64e6db4553425aca73de59e0"
+  },
+  "numeroOrden": "4",
+  "nombreCliente": "Julio Lopez",
+  "correoCliente": "Julio@gmail.com",
+  "celularCliente": "+504 4444-4444",
+  "ubicacion": "Pedegral",
+  "productos": [
+    {
+      "nombreProducto": "Desayuno Campero",
+      "descripcion": "sabor Rico",
+      "cantidad": 3,
+      "precio": 267
+    },
+    {
+      "nombreProducto": "Tostadas Francesas",
+      "descripcion": "Sabor Rico",
+      "cantidad": 2,
+      "precio": 198
+    }
+  ],
+  "comisionGestion": 10,
+  "comisionServicio": 15,
+  "totalPrice": 490,
+  "estado": "Tomado",
+  "fechaSolicitud": "3/8/2023",
+  "fechaEntrega": "",
+  "horaEntrega": ""
+}]

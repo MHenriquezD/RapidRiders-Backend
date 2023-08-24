@@ -11,4 +11,7 @@ const router = express_1.default.Router();
 router.get('/', motoristas_controller_1.cargarMotoristas);
 router.post('/login', clientes_controller_1.login);
 router.post('/', motoristas_controller_1.addMotorista);
+router.post('/:id/ordenes', motoristas_controller_1.addPedido);
+router.get('/:id/ordenes', motoristas_controller_1.obtenerPedidos);
+router.get('/:id/ordenesmotorista', motoristas_controller_1.obtenerOrdenesMotoristas);
 exports.default = router;
