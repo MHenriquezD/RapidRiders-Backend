@@ -12,9 +12,9 @@ export const cargarMotoristas = async (req: Request, res: Response) => {
 }
 
 export const login = async (req: Request, res: Response) => {
-    const motorista = await Motoristas.findOne({ correo: req.body.usuario, contrasena: req.body.contrasena });
+    const motorista = await Motoristas.findOne({ correo: req.body.usuario, password: req.body.contrasena });
     if (motorista) {
-        res.send({ exito: true, mensaje: 'Inicio de sesión exitoso', motorista: motorista });
+        res.send({ exito: true, mensaje: 'Inicio de sesión exitoso', usuario: motorista });
     } else {
         res.send({ status: false, message: 'Usuario o contraseña incorrectos' });
     }
@@ -42,41 +42,41 @@ export const addMotorista = async (req: Request, res: Response) => {
 }
 export const obtenerPedidos = async (req: Request, res: Response) => {
     const motorista = await Motoristas.findById(req.params.id);
-    if ( motorista ){
-        res.send({status: true, ordenes: motorista.ordenes})
-    }else{
-        res.send({status: false, message: 'Motorista no encontrado'})
+    if (motorista) {
+        res.send({ status: true, ordenes: motorista.ordenes })
+    } else {
+        res.send({ status: false, message: 'Motorista no encontrado' })
     }
     res.end();
 }
 
 
-export const addPedido =async (req:Request, res: Response) => {
-    const resultado = await Motoristas.updateOne({_id: req.params.id}, {
+export const addPedido = async (req: Request, res: Response) => {
+    const resultado = await Motoristas.updateOne({ _id: req.params.id }, {
         $push: {
             ordenes: {
-            _id: new mongoose.Types.ObjectId(req.body.idOrden)
+                _id: new mongoose.Types.ObjectId(req.body.idOrden)
             }
         }
     })
     res.send(resultado);
-    res.end();    
+    res.end();
 }
 
 export const obtenerOrdenesMotoristas = async (req: Request, res: Response) => {
-    const motorista:ordenesMotoristas[] = await Motoristas.aggregate(
-      [
-        {
-          $lookup: {
-            from: 'pedidos',
-            localField: 'ordenes._id',
-            foreignField: '_id',
-            as: 'ordenesMotoristas',
-          },
-        },
-      ]
+    const motorista: ordenesMotoristas[] = await Motoristas.aggregate(
+        [
+            {
+                $lookup: {
+                    from: 'pedidos',
+                    localField: 'ordenes._id',
+                    foreignField: '_id',
+                    as: 'ordenesMotoristas',
+                },
+            },
+        ]
     );
-  
+
     res.send(motorista);
     res.end();
-  }
+}
