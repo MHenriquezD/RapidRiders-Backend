@@ -22,9 +22,9 @@ const cargarMotoristas = (req, res) => __awaiter(void 0, void 0, void 0, functio
 });
 exports.cargarMotoristas = cargarMotoristas;
 const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const motorista = yield motoristas_schema_1.Motoristas.findOne({ correo: req.body.usuario, contrasena: req.body.contrasena });
+    const motorista = yield motoristas_schema_1.Motoristas.findOne({ correo: req.body.usuario, password: req.body.contrasena });
     if (motorista) {
-        res.send({ exito: true, mensaje: 'Inicio de sesión exitoso', motorista: motorista });
+        res.send({ exito: true, mensaje: 'Inicio de sesión exitoso', usuario: motorista });
     }
     else {
         res.send({ status: false, message: 'Usuario o contraseña incorrectos' });

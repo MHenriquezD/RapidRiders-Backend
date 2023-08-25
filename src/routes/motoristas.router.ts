@@ -1,6 +1,5 @@
 import express from 'express';
-import { addMotorista, addPedido, cargarMotoristas, obtenerOrdenesMotoristas, obtenerPedidos } from '../controllers/motoristas.controller';
-import { login } from '../controllers/clientes.controller';
+import { addMotorista, addPedido, cargarMotoristas, obtenerOrdenesMotoristas, obtenerPedidos, login } from '../controllers/motoristas.controller';
 
 const router = express.Router();
 
