@@ -3,6 +3,7 @@ import clientesRouter from './routes/clientes.router';
 import categoriasRouter from './routes/categorias.router';
 import motoristasRouter from './routes/motoristas.router';
 import adminsRouter from './routes/admins.router';
+import pedidosRouter from './routes/pedidos.router';
 
 import { Database } from './database/database';
 import cors from 'cors';
@@ -16,6 +17,7 @@ app.use('/clientes', clientesRouter);
 app.use('/categorias', categoriasRouter);
 app.use('/motoristas', motoristasRouter);
 app.use('/admins', adminsRouter);
+app.use('/pedidos', pedidosRouter)
 
 
 // http://localhost:3000/

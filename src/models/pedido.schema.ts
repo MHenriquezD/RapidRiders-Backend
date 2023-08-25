@@ -3,8 +3,12 @@ import { Pedido } from "./pedido.model";
 import { Producto } from "./categorias.model";
 
 const schema = new mongoose.Schema<Pedido>({
-    numeroOrden: String,
+    _idCliente: mongoose.Types.ObjectId,
+    nombreCliente: String,
+    celularCliente: String,
     ubicacion: String,
+    latitud: Number,
+    longitud: Number,
     productos: Array<Producto>,
     comisionGestion: Number,
     comisionServicio: Number,

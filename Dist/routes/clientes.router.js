@@ -9,7 +9,8 @@ const router = express_1.default.Router();
 // (GET) http://localhost:3000/login
 router.get('/', clientes_controller_1.cargarCLientes);
 router.post('/login', clientes_controller_1.login);
+router.get('/ordenes', clientes_controller_1.obtenerOrdenes);
 router.get('/:id', clientes_controller_1.obtenerUsuario);
-router.get('/:id/ordenes', clientes_controller_1.agregarOrden);
+router.post('/:id/ordenes', clientes_controller_1.agregarOrden);
 router.post('/', clientes_controller_1.agregarCliente);
 exports.default = router;

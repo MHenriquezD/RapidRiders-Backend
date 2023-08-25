@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { UserProfile } from '../models/clientes.schema';
+import { UsuarioOrdenes } from '../models/clientes.model';
 
 import mongoose from 'mongoose';
 
@@ -32,9 +33,8 @@ export const agregarOrden = async (req: Request, res: Response) => {
   const resultado = await UserProfile.updateOne({ _id: req.params.id }, {
     $push: {
       ordenes: {
-        idOrden: req.body.idOrden,
-        nombreProducto: req.body.nombreProducto,
-        precio: req.body.precio,
+        idOrden: new mongoose.Types.ObjectId(req.body.idOrden),
+        total: req.body.total,
         entregado: false
       }
     }
@@ -44,21 +44,39 @@ export const agregarOrden = async (req: Request, res: Response) => {
 }
 
 export const agregarCliente = async (req: Request, res: Response) => {
-  const profile = new UserProfile({
-    _id: new mongoose.Types.ObjectId(),
-    //id: req.body.id,
-    nombre: req.body.nombre,
-    apellido: req.body.apellido,
-    identificacion: req.body.identificacion,
-    fotoPerfil: req.body.fotoPerfil,
-    correoElectronico: req.body.correoElectronico,
-    contrasena: req.body.contrasena,
-    numeroTarjeta: req.body.numeroTarjeta,
-    expira: req.body.expira,
-    cvv: req.body.cvv,
-    ordenes: []
-  });
-  const resultado = await profile.save();
-  res.send(resultado);
-  res.end();
+    const profile = new UserProfile({
+        //id: req.body.id,
+        nombre: req.body.nombre,
+        apellido: req.body.apellido,
+        identificacion: req.body.identificacion,
+        fotoPerfil: req.body.fotoPerfil,
+        telefono: req.body.telefono,
+        correoElectronico: req.body.correoElectronico,
+        contrasena: req.body.contrasena,
+        numeroTarjeta: req.body.numeroTarjeta,
+        expira: req.body.expira,
+        cvv: req.body.cvv,
+        ordenes: []
+    });
+    const resultado = await profile.save();
+    res.send(resultado);
+    res.end();
+}
+
+export const obtenerOrdenes = async (req: Request, res: Response) => {
+    const profile:UsuarioOrdenes[] = await UserProfile.aggregate(
+      [
+        {
+          $lookup: {
+            from: 'pedidos',
+            localField: 'ordenes.idOrden',
+            foreignField: '_id',
+            as: 'ordenesClientes',
+          },
+        },
+      ]
+    );
+  
+    res.send(profile);
+    res.end();
 }

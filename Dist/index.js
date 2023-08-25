@@ -8,6 +8,7 @@ const clientes_router_1 = __importDefault(require("./routes/clientes.router"));
 const categorias_router_1 = __importDefault(require("./routes/categorias.router"));
 const motoristas_router_1 = __importDefault(require("./routes/motoristas.router"));
 const admins_router_1 = __importDefault(require("./routes/admins.router"));
+const pedidos_router_1 = __importDefault(require("./routes/pedidos.router"));
 const database_1 = require("./database/database");
 const cors_1 = __importDefault(require("cors"));
 const app = (0, express_1.default)();
@@ -18,6 +19,7 @@ app.use('/clientes', clientes_router_1.default);
 app.use('/categorias', categorias_router_1.default);
 app.use('/motoristas', motoristas_router_1.default);
 app.use('/admins', admins_router_1.default);
+app.use('/pedidos', pedidos_router_1.default);
 // http://localhost:3000/
 app.get("/", (req, res) => {
     res.send("Servidor para pruebas de Rapid Riders");

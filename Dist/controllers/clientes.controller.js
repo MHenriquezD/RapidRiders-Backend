@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.agregarCliente = exports.agregarOrden = exports.obtenerUsuario = exports.cargarCLientes = exports.login = void 0;
+exports.obtenerOrdenes = exports.agregarCliente = exports.agregarOrden = exports.obtenerUsuario = exports.cargarCLientes = exports.login = void 0;
 const clientes_schema_1 = require("../models/clientes.schema");
 const mongoose_1 = __importDefault(require("mongoose"));
 const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -46,9 +46,8 @@ const agregarOrden = (req, res) => __awaiter(void 0, void 0, void 0, function* (
     const resultado = yield clientes_schema_1.UserProfile.updateOne({ _id: req.params.id }, {
         $push: {
             ordenes: {
-                idOrden: req.body.idOrden,
-                nombreProducto: req.body.nombreProducto,
-                precio: req.body.precio,
+                idOrden: new mongoose_1.default.Types.ObjectId(req.body.idOrden),
+                total: req.body.total,
                 entregado: false
             }
         }
@@ -59,12 +58,12 @@ const agregarOrden = (req, res) => __awaiter(void 0, void 0, void 0, function* (
 exports.agregarOrden = agregarOrden;
 const agregarCliente = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const profile = new clientes_schema_1.UserProfile({
-        _id: new mongoose_1.default.Types.ObjectId(),
         //id: req.body.id,
         nombre: req.body.nombre,
         apellido: req.body.apellido,
         identificacion: req.body.identificacion,
         fotoPerfil: req.body.fotoPerfil,
+        telefono: req.body.telefono,
         correoElectronico: req.body.correoElectronico,
         contrasena: req.body.contrasena,
         numeroTarjeta: req.body.numeroTarjeta,
@@ -77,3 +76,18 @@ const agregarCliente = (req, res) => __awaiter(void 0, void 0, void 0, function*
     res.end();
 });
 exports.agregarCliente = agregarCliente;
+const obtenerOrdenes = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const profile = yield clientes_schema_1.UserProfile.aggregate([
+        {
+            $lookup: {
+                from: 'pedidos',
+                localField: 'ordenes.idOrden',
+                foreignField: '_id',
+                as: 'ordenesClientes',
+            },
+        },
+    ]);
+    res.send(profile);
+    res.end();
+});
+exports.obtenerOrdenes = obtenerOrdenes;

@@ -2,8 +2,7 @@ import mongoose from "mongoose";
 import { ordenesUsuario } from "../models/ordenesUsuario.model";
 
 const schema = new mongoose.Schema<ordenesUsuario>({
-    nombreProducto: String,
-    precio: Number,
+    total: Number,
     entregado: Boolean
 });
 

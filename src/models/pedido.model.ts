@@ -2,11 +2,13 @@ import mongoose from 'mongoose';
 import { Producto } from './categorias.model';
 
 export interface Pedido {
-    numeroOrden: string;
+    numeroOrden: mongoose.Types.ObjectId;
     _idCliente: mongoose.Types.ObjectId;
-    nombreCliente: mongoose.Types.ObjectId;
+    nombreCliente: string;
     celularCliente: string;
     ubicacion: string;
+    latitud: number;
+    longitud: number;
     productos: Array<Producto>;
     comisionGestion: number;
     comisionServicio: number;
@@ -14,7 +16,6 @@ export interface Pedido {
     estado: string;
     fechaSolicitud: string;
     fechaEntrega: string;
-    horaEntrega: string
+    horaEntrega: string,
+    status: string;
 }
-
-
