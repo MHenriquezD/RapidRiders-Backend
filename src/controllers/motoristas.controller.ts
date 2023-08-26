@@ -5,6 +5,7 @@ import { Pedidos } from '../models/pedido.schema';
 import mongoose from 'mongoose';
 import { ordenesMotoristas } from '../models/motoristas.model';
 
+
 export const cargarMotoristas = async (req: Request, res: Response) => {
     const motoristas = await Motoristas.find();
     res.send(motoristas);
@@ -21,17 +22,17 @@ export const login = async (req: Request, res: Response) => {
     res.end();
 }
 
-export const addMotorista = async (req: Request, res: Response) => {
-    const nuevoMotorista = new Motoristas({
-        nombre: req.body.nombre,
-        apellido: req.body.apellido,
-        identificacion: req.body.identificacion,
-        fotoPerfil: req.body.fotoPerfil,
-        correo: req.body.correo,
-        contrasena: req.body.contrasena,
-        placa: req.body.placa,
-        tipoVehiculo: req.body.tipoVehiculo,
-        ordenes: []
+export const addMotorista = async (req:Request, res:Response)=>{
+    const nuevoMotorista= new Motoristas({
+        nombre:req.body.nombre,
+        apellido:req.body.apellido,
+        identificacion:req.body. identificacion,
+        fotoPerfil:req.body.fotoPerfil,
+        correo:req.body.correo,
+        password:req.body.contrasena,
+        placa:req.body.placa,
+        tipoVehiculo:req.body.tipoVehiculo,
+        ordenes:[]
     });
     await nuevoMotorista.save();
     res.send({
@@ -40,6 +41,7 @@ export const addMotorista = async (req: Request, res: Response) => {
     });
     res.end();
 }
+
 export const obtenerPedidos = async (req: Request, res: Response) => {
     const motorista = await Motoristas.findById(req.params.id);
     if (motorista) {
@@ -64,19 +66,33 @@ export const addPedido = async (req: Request, res: Response) => {
 }
 
 export const obtenerOrdenesMotoristas = async (req: Request, res: Response) => {
-    const motorista: ordenesMotoristas[] = await Motoristas.aggregate(
+    const motoristaId = req.params.id; // Obtener el id del motorista de la solicitud
+
+    // Buscar el motorista por su id
+    const motorista = await Motoristas.findById(motoristaId);
+
+    if (!motorista) {
+        // Si no se encuentra el motorista, enviar una respuesta adecuada
+        return res.send({ status: false, message: 'Motorista no encontrado' });
+    }
+
+    
+    const motoristaConOrdenes = await Motoristas.aggregate(
         [
+            {
+                $match: { _id: motorista._id } // Filtrar por el id del motorista encontrado
+            },
             {
                 $lookup: {
                     from: 'pedidos',
                     localField: 'ordenes._id',
                     foreignField: '_id',
-                    as: 'ordenesMotoristas',
+                    as: 'ordenesmotoristas',
                 },
             },
         ]
     );
 
-    res.send(motorista);
+    res.send(motoristaConOrdenes);
     res.end();
 }

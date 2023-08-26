@@ -2,7 +2,6 @@
   "_id": {
     "$oid": "64e6ddfb53425aca73de59eb"
   },
-  "id": "1",
   "nombre": "Susan",
   "apellido": "Cid",
   "imagenPerfil": "img",
@@ -16,12 +15,7 @@
   "ordenes": [
     {
       "_id": {
-        "$oid": "64e6db4553425aca73de59dd"
-      }
-    },
-    {
-      "_id": {
-        "$oid": "0000000267914aac72f4e0ba"
+        "$oid": "64e6db4553425aca73de59e0"
       }
     },
     {
@@ -35,7 +29,6 @@
   "_id": {
     "$oid": "64e6ddfb53425aca73de59ec"
   },
-  "id": "2",
   "nombre": "Manuel",
   "apellido": "Leunma",
   "imagenPerfil": "img",
@@ -47,7 +40,22 @@
   "descripcionVehiculo": "Moto genesis",
   "placa": "FSG2543",
   "ordenes": [
-    "10",
-    "11"
+    {
+      "_id": {
+        "$oid": "64e92b03c4c56fc5a8e8a2c8"
+      }  
+    },
+    {
+      "_id": {
+        "$oid": "64e92b03c4c56fc5a8e8a2c9"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "64e92b03c4c56fc5a8e8a2ca"
+      }
+    }
+
+
   ]
 }]

@@ -39,7 +39,7 @@ const addMotorista = (req, res) => __awaiter(void 0, void 0, void 0, function* (
         identificacion: req.body.identificacion,
         fotoPerfil: req.body.fotoPerfil,
         correo: req.body.correo,
-        contrasena: req.body.contrasena,
+        password: req.body.contrasena,
         placa: req.body.placa,
         tipoVehiculo: req.body.tipoVehiculo,
         ordenes: []
@@ -75,17 +75,27 @@ const addPedido = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 });
 exports.addPedido = addPedido;
 const obtenerOrdenesMotoristas = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const motorista = yield motoristas_schema_1.Motoristas.aggregate([
+    const motoristaId = req.params.id; // Obtener el id del motorista de la solicitud
+    // Buscar el motorista por su id
+    const motorista = yield motoristas_schema_1.Motoristas.findById(motoristaId);
+    if (!motorista) {
+        // Si no se encuentra el motorista, enviar una respuesta adecuada
+        return res.send({ status: false, message: 'Motorista no encontrado' });
+    }
+    const motoristaConOrdenes = yield motoristas_schema_1.Motoristas.aggregate([
+        {
+            $match: { _id: motorista._id } // Filtrar por el id del motorista encontrado
+        },
         {
             $lookup: {
                 from: 'pedidos',
                 localField: 'ordenes._id',
                 foreignField: '_id',
-                as: 'ordenesMotoristas',
+                as: 'ordenesmotoristas',
             },
         },
     ]);
-    res.send(motorista);
+    res.send(motoristaConOrdenes);
     res.end();
 });
 exports.obtenerOrdenesMotoristas = obtenerOrdenesMotoristas;
