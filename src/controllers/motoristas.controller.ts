@@ -3,7 +3,7 @@ import { Motoristas } from '../models/motoristas.schema';
 import { Pedidos } from '../models/pedido.schema';
 
 import mongoose from 'mongoose';
-import { ordenesMotoristas } from '../models/motoristas.model';
+
 
 
 export const cargarMotoristas = async (req: Request, res: Response) => {
