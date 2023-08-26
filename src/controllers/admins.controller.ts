@@ -10,7 +10,7 @@ export const obtenerAdministradores =async (req: Request, res: Response) => {
 }
 
 export const obtenerAdministrador =async (req: Request, res: Response) => {
-    const administrador = await Administrador.findById(req.params.id);
+    const administrador = await Administrador.findById(req.params.id, {password: false});
     if (administrador)
         res.send({status: true, admin: administrador});
     else 

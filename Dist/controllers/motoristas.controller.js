@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.obtenerOrdenesMotoristas = exports.addPedido = exports.obtenerPedidos = exports.addMotorista = exports.login = exports.cargarMotoristas = void 0;
+exports.deleteMotorista = exports.updateMotorista = exports.obtenerOrdenesMotoristas = exports.addPedido = exports.obtenerPedidos = exports.addMotorista = exports.login = exports.cargarMotorista = exports.cargarMotoristas = void 0;
 const motoristas_schema_1 = require("../models/motoristas.schema");
 const mongoose_1 = __importDefault(require("mongoose"));
 const cargarMotoristas = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -21,6 +21,15 @@ const cargarMotoristas = (req, res) => __awaiter(void 0, void 0, void 0, functio
     res.end();
 });
 exports.cargarMotoristas = cargarMotoristas;
+const cargarMotorista = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const motorista = yield motoristas_schema_1.Motoristas.findById(req.params.id);
+    if (motorista)
+        res.send(motorista);
+    else
+        res.send({ status: false, message: 'No se encontró el motorista' });
+    res.end();
+});
+exports.cargarMotorista = cargarMotorista;
 const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const motorista = yield motoristas_schema_1.Motoristas.findOne({ correo: req.body.usuario, password: req.body.contrasena });
     if (motorista) {
@@ -36,12 +45,14 @@ const addMotorista = (req, res) => __awaiter(void 0, void 0, void 0, function* (
     const nuevoMotorista = new motoristas_schema_1.Motoristas({
         nombre: req.body.nombre,
         apellido: req.body.apellido,
+        imagenPerfil: req.body.fotoPerfil,
         identificacion: req.body.identificacion,
-        fotoPerfil: req.body.fotoPerfil,
+        fechaNacimiento: req.body.fechaNacimiento,
         correo: req.body.correo,
-        contrasena: req.body.contrasena,
-        placa: req.body.placa,
-        tipoVehiculo: req.body.tipoVehiculo,
+        password: req.body.contrasena,
+        celular: req.body.celular,
+        descripcionVehiculo: req.body.placaVehiculo,
+        placaVehiculo: req.body.placaVehiculo,
         ordenes: []
     });
     yield nuevoMotorista.save();
@@ -89,3 +100,28 @@ const obtenerOrdenesMotoristas = (req, res) => __awaiter(void 0, void 0, void 0,
     res.end();
 });
 exports.obtenerOrdenesMotoristas = obtenerOrdenesMotoristas;
+const updateMotorista = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const resultado = yield motoristas_schema_1.Motoristas.updateOne({ _id: req.params.id }, {
+        $set: {
+            nombre: req.body.nombre,
+            apellido: req.body.apellido,
+            identificacion: req.body.identificacion,
+            fechaNacimiento: req.body.fechaNacimiento,
+            correo: req.body.correo,
+            celular: req.body.celular,
+            descripcionVehiculo: req.body.descripcionVehiculo,
+            placaVehiculo: req.body.placaVehiculo,
+        }
+    });
+    res.send(resultado);
+    res.end();
+});
+exports.updateMotorista = updateMotorista;
+const deleteMotorista = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    motoristas_schema_1.Motoristas.deleteOne({ _id: req.params.id })
+        .then((removeResult) => {
+        res.send({ message: 'Registro eliminado', removeResult });
+        res.end();
+    });
+});
+exports.deleteMotorista = deleteMotorista;

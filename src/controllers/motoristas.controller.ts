@@ -11,6 +11,15 @@ export const cargarMotoristas = async (req: Request, res: Response) => {
     res.end();
 }
 
+export const cargarMotorista = async (req: Request, res: Response) => {
+    const motorista = await Motoristas.findById(req.params.id);
+    if (motorista)
+        res.send(motorista);
+    else
+        res.send({ status: false, message: 'No se encontró el motorista' });
+    res.end();
+}
+
 export const login = async (req: Request, res: Response) => {
     const motorista = await Motoristas.findOne({ correo: req.body.usuario, password: req.body.contrasena });
     if (motorista) {
@@ -25,12 +34,14 @@ export const addMotorista = async (req: Request, res: Response) => {
     const nuevoMotorista = new Motoristas({
         nombre: req.body.nombre,
         apellido: req.body.apellido,
+        imagenPerfil: req.body.fotoPerfil,
         identificacion: req.body.identificacion,
-        fotoPerfil: req.body.fotoPerfil,
+        fechaNacimiento: req.body.fechaNacimiento,
         correo: req.body.correo,
-        contrasena: req.body.contrasena,
-        placa: req.body.placa,
-        tipoVehiculo: req.body.tipoVehiculo,
+        password: req.body.contrasena,
+        celular: req.body.celular,
+        descripcionVehiculo: req.body.placaVehiculo,
+        placaVehiculo: req.body.placaVehiculo,
         ordenes: []
     });
     await nuevoMotorista.save();
@@ -79,4 +90,29 @@ export const obtenerOrdenesMotoristas = async (req: Request, res: Response) => {
 
     res.send(motorista);
     res.end();
+}
+
+export const updateMotorista = async (req: Request, res: Response) => {
+    const resultado = await Motoristas.updateOne({ _id: req.params.id }, {
+        $set: {
+            nombre: req.body.nombre,
+            apellido: req.body.apellido,
+            identificacion: req.body.identificacion,
+            fechaNacimiento: req.body.fechaNacimiento,
+            correo: req.body.correo,
+            celular: req.body.celular,
+            descripcionVehiculo: req.body.descripcionVehiculo,
+            placaVehiculo: req.body.placaVehiculo,
+        }
+    })
+    res.send(resultado);
+    res.end();
+}
+
+export const deleteMotorista = async (req: Request, res: Response) => {
+    Motoristas.deleteOne({_id: req.params.id})
+      .then((removeResult:any) => {
+          res.send({message: 'Registro eliminado', removeResult});
+          res.end();
+      });
 }

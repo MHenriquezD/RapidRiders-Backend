@@ -18,7 +18,7 @@ const obtenerAdministradores = (req, res) => __awaiter(void 0, void 0, void 0, f
 });
 exports.obtenerAdministradores = obtenerAdministradores;
 const obtenerAdministrador = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const administrador = yield admins_schema_1.Administrador.findById(req.params.id);
+    const administrador = yield admins_schema_1.Administrador.findById(req.params.id, { password: false });
     if (administrador)
         res.send({ status: true, admin: administrador });
     else
