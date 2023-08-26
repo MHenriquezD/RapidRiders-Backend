@@ -21,10 +21,20 @@ export const cargarMotorista = async (req: Request, res: Response) => {
     res.end();
 }
 
+export const obtenerMotorista = async (req: Request, res: Response) => {
+    const motorista = await Motoristas.findById(req.params.id);
+    if ( motorista ){
+        res.send({status: true, motorista: motorista})
+    }else{
+        res.send({status: false, message: 'Motorista no encontrado'})
+    }
+    res.end();
+}
+
 export const login = async (req: Request, res: Response) => {
-    const motorista = await Motoristas.findOne({ correo: req.body.usuario, password: req.body.contrasena });
-    if (motorista) {
-        res.send({ exito: true, mensaje: 'Inicio de sesión exitoso', usuario: motorista });
+    const motorista = await Motoristas.findOne({ correo: req.body.correo, password: req.body.password });
+    if (motorista != null) {
+        res.send({ exito: true, mensaje: 'Inicio de sesión exitoso', motorista: motorista });
     } else {
         res.send({ status: false, message: 'Usuario o contraseña incorrectos' });
     }
@@ -87,7 +97,6 @@ export const obtenerOrdenesMotoristas = async (req: Request, res: Response) => {
         return res.send({ status: false, message: 'Motorista no encontrado' });
     }
 
-    
     const motoristaConOrdenes = await Motoristas.aggregate(
         [
             {
@@ -98,14 +107,14 @@ export const obtenerOrdenesMotoristas = async (req: Request, res: Response) => {
                     from: 'pedidos',
                     localField: 'ordenes._id',
                     foreignField: '_id',
-                    as: 'ordenesmotoristas',
+                    as: 'ordenesMotorista',
                 },
             },
         ]
     );
 
-    res.send(motoristaConOrdenes);
-    res.end();
+    res.send(motoristaConOrdenes[0]);
+   res.end();
 }
 
 export const updateMotorista = async (req: Request, res: Response) => {

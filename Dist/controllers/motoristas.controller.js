@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteMotorista = exports.updateMotorista = exports.obtenerOrdenesMotoristas = exports.addPedido = exports.obtenerPedidos = exports.addMotorista = exports.login = exports.cargarMotorista = exports.cargarMotoristas = void 0;
+exports.deleteMotorista = exports.updateMotorista = exports.obtenerOrdenesMotoristas = exports.addPedido = exports.obtenerPedidos = exports.addMotorista = exports.login = exports.obtenerMotorista = exports.cargarMotorista = exports.cargarMotoristas = void 0;
 const motoristas_schema_1 = require("../models/motoristas.schema");
 const mongoose_1 = __importDefault(require("mongoose"));
 const cargarMotoristas = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -30,10 +30,21 @@ const cargarMotorista = (req, res) => __awaiter(void 0, void 0, void 0, function
     res.end();
 });
 exports.cargarMotorista = cargarMotorista;
-const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const motorista = yield motoristas_schema_1.Motoristas.findOne({ correo: req.body.usuario, password: req.body.contrasena });
+const obtenerMotorista = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const motorista = yield motoristas_schema_1.Motoristas.findById(req.params.id);
     if (motorista) {
-        res.send({ exito: true, mensaje: 'Inicio de sesión exitoso', usuario: motorista });
+        res.send({ status: true, motorista: motorista });
+    }
+    else {
+        res.send({ status: false, message: 'Motorista no encontrado' });
+    }
+    res.end();
+});
+exports.obtenerMotorista = obtenerMotorista;
+const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const motorista = yield motoristas_schema_1.Motoristas.findOne({ correo: req.body.correo, password: req.body.password });
+    if (motorista != null) {
+        res.send({ exito: true, mensaje: 'Inicio de sesión exitoso', motorista: motorista });
     }
     else {
         res.send({ status: false, message: 'Usuario o contraseña incorrectos' });
@@ -50,14 +61,9 @@ const addMotorista = (req, res) => __awaiter(void 0, void 0, void 0, function* (
         fechaNacimiento: req.body.fechaNacimiento,
         correo: req.body.correo,
         password: req.body.contrasena,
-<<<<<<< HEAD
         celular: req.body.celular,
         descripcionVehiculo: req.body.placaVehiculo,
         placaVehiculo: req.body.placaVehiculo,
-=======
-        placa: req.body.placa,
-        tipoVehiculo: req.body.tipoVehiculo,
->>>>>>> a74e4e53fea32490376eee4079a6fd0ad2abe4a1
         ordenes: []
     });
     yield nuevoMotorista.save();
@@ -107,11 +113,11 @@ const obtenerOrdenesMotoristas = (req, res) => __awaiter(void 0, void 0, void 0,
                 from: 'pedidos',
                 localField: 'ordenes._id',
                 foreignField: '_id',
-                as: 'ordenesmotoristas',
+                as: 'ordenesMotorista',
             },
         },
     ]);
-    res.send(motoristaConOrdenes);
+    res.send(motoristaConOrdenes[0]);
     res.end();
 });
 exports.obtenerOrdenesMotoristas = obtenerOrdenesMotoristas;

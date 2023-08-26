@@ -6,9 +6,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Pedidos = void 0;
 const mongoose_1 = __importDefault(require("mongoose"));
 const schema = new mongoose_1.default.Schema({
+    _id: mongoose_1.default.Types.ObjectId,
     _idCliente: mongoose_1.default.Types.ObjectId,
-    nombreCliente: String,
-    celularCliente: String,
     ubicacion: String,
     latitud: Number,
     longitud: Number,

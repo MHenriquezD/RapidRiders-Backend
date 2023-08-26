@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { Pedidos } from '../models/pedido.schema';
-
 import mongoose from 'mongoose';
+
 
 export const cargarPedidos = async (req: Request, res: Response) => {
     const pedidos = await Pedidos.find();
@@ -9,12 +9,21 @@ export const cargarPedidos = async (req: Request, res: Response) => {
     res.end();
 }
 
+export const obtenerPedido = async (req: Request, res: Response) => {
+    const pedido = await Pedidos.findById(req.params.id);
+    if (pedido) {
+        res.send({ status: true, pedido: pedido })
+    } else {
+        res.send({ status: false, message: 'Pedido no encontrado' })
+    }
+    res.end();
+}
 export const cargarProductosPedidos = async (req: Request, res: Response) => {
     const pedidos = await Pedidos.findById(req.params.id);
     if (pedidos)
-        res.send({status: true, pedidos: pedidos.productos});
-    else 
-        res.send({status: false, message: 'No se encontró el pedido'});
+        res.send({ status: true, pedidos: pedidos.productos });
+    else
+        res.send({ status: false, message: 'No se encontró el pedido' });
     res.end();
 }
 
@@ -39,4 +48,22 @@ export const crearPedido = async (req: Request, res: Response) => {
     const resultado = await pedido.save();
     res.send(resultado);
     res.end();
+}
+
+export const modificarEstadoPedido = async (req: Request, res: Response) => {
+
+    await Pedidos.updateOne({ _id: req.params.id },
+        {
+            $set:
+            {
+                estado: req.body.estado
+            }
+        }
+    ).then((updateResponse: any) => {
+        res.send({ message: 'Registro actualizado', updateResponse });
+        res.end();
+    }).catch((error: any) => {
+        res.send({ message: 'Hubo un error al actualizar', error });
+        res.end();
+    });
 }

@@ -2,10 +2,8 @@ import mongoose from 'mongoose';
 import { Producto } from './categorias.model';
 
 export interface Pedido {
-    numeroOrden: mongoose.Types.ObjectId;
+    _id: mongoose.Types.ObjectId;
     _idCliente: mongoose.Types.ObjectId;
-    nombreCliente: string;
-    celularCliente: string;
     ubicacion: string;
     latitud: number;
     longitud: number;

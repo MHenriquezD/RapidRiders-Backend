@@ -1,16 +1,15 @@
 import express from 'express';
-import { addMotorista, addPedido, cargarMotorista, cargarMotoristas, obtenerOrdenesMotoristas, obtenerPedidos, login, updateMotorista, deleteMotorista } from '../controllers/motoristas.controller';
+import { addMotorista, addPedido, cargarMotoristas, obtenerMotorista, obtenerOrdenesMotoristas, login, updateMotorista, deleteMotorista } from '../controllers/motoristas.controller';
 
 const router = express.Router();
 
 // (GET) http://localhost:3000/motoristas
 router.get('/', cargarMotoristas);
-router.get('/:id', cargarMotorista);
+router.get('/:id/motorista', obtenerMotorista);
 router.post('/login', login);
-router.post('/', addMotorista);
+router.post('/agregar', addMotorista);
 router.post('/:id/ordenes', addPedido);
-router.get('/:id/ordenes', obtenerPedidos);
-router.get('/:id/ordenesmotorista', obtenerOrdenesMotoristas);
+router.get('/:id/ordenesMotorista', obtenerOrdenesMotoristas);
 router.post('/:id', updateMotorista);
 router.delete('/:id', deleteMotorista);
 

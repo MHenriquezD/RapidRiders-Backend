@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.crearPedido = exports.cargarProductosPedidos = exports.cargarPedidos = void 0;
+exports.modificarEstadoPedido = exports.crearPedido = exports.cargarProductosPedidos = exports.obtenerPedido = exports.cargarPedidos = void 0;
 const pedido_schema_1 = require("../models/pedido.schema");
 const mongoose_1 = __importDefault(require("mongoose"));
 const cargarPedidos = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -21,6 +21,17 @@ const cargarPedidos = (req, res) => __awaiter(void 0, void 0, void 0, function* 
     res.end();
 });
 exports.cargarPedidos = cargarPedidos;
+const obtenerPedido = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const pedido = yield pedido_schema_1.Pedidos.findById(req.params.id);
+    if (pedido) {
+        res.send({ status: true, pedido: pedido });
+    }
+    else {
+        res.send({ status: false, message: 'Pedido no encontrado' });
+    }
+    res.end();
+});
+exports.obtenerPedido = obtenerPedido;
 const cargarProductosPedidos = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const pedidos = yield pedido_schema_1.Pedidos.findById(req.params.id);
     if (pedidos)
@@ -53,3 +64,17 @@ const crearPedido = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
     res.end();
 });
 exports.crearPedido = crearPedido;
+const modificarEstadoPedido = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    yield pedido_schema_1.Pedidos.updateOne({ _id: req.params.id }, {
+        $set: {
+            estado: req.body.estado
+        }
+    }).then((updateResponse) => {
+        res.send({ message: 'Registro actualizado', updateResponse });
+        res.end();
+    }).catch((error) => {
+        res.send({ message: 'Hubo un error al actualizar', error });
+        res.end();
+    });
+});
+exports.modificarEstadoPedido = modificarEstadoPedido;
