@@ -81,4 +81,22 @@
   "cvv": "074",
   "ordenes": [],
   "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64e8eddf90fed62ee5531d7b"
+  },
+  "nombre": "Manuel",
+  "apellido": "Henriquez",
+  "identificacion": "0826199700336",
+  "fotoPerfil": "recursos/img/img_perfiles/6.jpg",
+  "correoElectronico": "mhenriquez@gmail.com",
+  "contrasena": "manuel@3312",
+  "numeroTarjeta": {
+    "$numberLong": "4067675408976645"
+  },
+  "expira": "18",
+  "cvv": "074",
+  "ordenes": [],
+  "__v": 0
 }]

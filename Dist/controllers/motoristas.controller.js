@@ -50,9 +50,14 @@ const addMotorista = (req, res) => __awaiter(void 0, void 0, void 0, function* (
         fechaNacimiento: req.body.fechaNacimiento,
         correo: req.body.correo,
         password: req.body.contrasena,
+<<<<<<< HEAD
         celular: req.body.celular,
         descripcionVehiculo: req.body.placaVehiculo,
         placaVehiculo: req.body.placaVehiculo,
+=======
+        placa: req.body.placa,
+        tipoVehiculo: req.body.tipoVehiculo,
+>>>>>>> a74e4e53fea32490376eee4079a6fd0ad2abe4a1
         ordenes: []
     });
     yield nuevoMotorista.save();
@@ -86,17 +91,27 @@ const addPedido = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 });
 exports.addPedido = addPedido;
 const obtenerOrdenesMotoristas = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const motorista = yield motoristas_schema_1.Motoristas.aggregate([
+    const motoristaId = req.params.id; // Obtener el id del motorista de la solicitud
+    // Buscar el motorista por su id
+    const motorista = yield motoristas_schema_1.Motoristas.findById(motoristaId);
+    if (!motorista) {
+        // Si no se encuentra el motorista, enviar una respuesta adecuada
+        return res.send({ status: false, message: 'Motorista no encontrado' });
+    }
+    const motoristaConOrdenes = yield motoristas_schema_1.Motoristas.aggregate([
+        {
+            $match: { _id: motorista._id } // Filtrar por el id del motorista encontrado
+        },
         {
             $lookup: {
                 from: 'pedidos',
                 localField: 'ordenes._id',
                 foreignField: '_id',
-                as: 'ordenesMotoristas',
+                as: 'ordenesmotoristas',
             },
         },
     ]);
-    res.send(motorista);
+    res.send(motoristaConOrdenes);
     res.end();
 });
 exports.obtenerOrdenesMotoristas = obtenerOrdenesMotoristas;
