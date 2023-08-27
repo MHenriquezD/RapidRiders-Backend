@@ -23,10 +23,10 @@ export const cargarMotorista = async (req: Request, res: Response) => {
 
 export const obtenerMotorista = async (req: Request, res: Response) => {
     const motorista = await Motoristas.findById(req.params.id);
-    if ( motorista ){
-        res.send({status: true, motorista: motorista})
-    }else{
-        res.send({status: false, message: 'Motorista no encontrado'})
+    if (motorista) {
+        res.send({ status: true, motorista: motorista })
+    } else {
+        res.send({ status: false, message: 'Motorista no encontrado' })
     }
     res.end();
 }
@@ -114,7 +114,7 @@ export const obtenerOrdenesMotoristas = async (req: Request, res: Response) => {
     );
 
     res.send(motoristaConOrdenes[0]);
-   res.end();
+    res.end();
 }
 
 export const updateMotorista = async (req: Request, res: Response) => {
@@ -135,9 +135,9 @@ export const updateMotorista = async (req: Request, res: Response) => {
 }
 
 export const deleteMotorista = async (req: Request, res: Response) => {
-    Motoristas.deleteOne({_id: req.params.id})
-      .then((removeResult:any) => {
-          res.send({message: 'Registro eliminado', removeResult});
-          res.end();
-      });
+    Motoristas.deleteOne({ _id: req.params.id })
+        .then((removeResult: any) => {
+            res.send({ message: 'Registro eliminado', removeResult });
+            res.end();
+        });
 }
