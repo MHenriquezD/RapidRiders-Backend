@@ -1,0 +1,286 @@
+[{
+  "_id": {
+    "$oid": "64e6db4553425aca73de59dd"
+  },
+  "numeroOrden": "1",
+  "Cliente": "Pedro Martinez",
+  "Correo": "pedromartinez@gmail.com",
+  "celularCliente": "+504 1111-1111",
+  "ubicacion": "Villa Vieja",
+  "productos": [
+    {
+      "nombreProducto": "Whopper",
+      "descripcion": "Hamburguesa con un rico sabor",
+      "cantidad": 2,
+      "precio": 250
+    },
+    {
+      "nombreProducto": "Bin King xl Doble",
+      "descripcion": "Hamburguesa con un rico sabor",
+      "cantidad": 1,
+      "precio": 220
+    },
+    {
+      "nombreProducto": "Bacon King Jr.",
+      "descripcion": "Hamburguesa con un rico sabor",
+      "cantidad": 3,
+      "precio": 200
+    }
+  ],
+  "comisionGestion": 18,
+  "comisionServicio": 22,
+  "totalPrice": 1360,
+  "estado": "Tomado",
+  "fechaSolicitud": "1/8/2023",
+  "fechaEntrega": "",
+  "horaEntrega": ""
+},
+{
+  "_id": {
+    "$oid": "64e6db4553425aca73de59de"
+  },
+  "numeroOrden": "2",
+  "nombreCliente": "Maria Duarte",
+  "correoCliente": "Maria@hotmail.com",
+  "celularCliente": "+504 2222-2222",
+  "ubicacion": "Villa Nueva",
+  "productos": [
+    {
+      "nombreProducto": "50 Munchkins",
+      "descripcion": "Sabor Rico",
+      "cantidad": 2,
+      "precio": 218
+    },
+    {
+      "nombreProducto": "Media Docena + 2 Dunkaccinos de Oreo",
+      "descripcion": "Sabor Rico",
+      "cantidad": 1,
+      "precio": 199
+    }
+  ],
+  "comisionGestion": 10,
+  "comisionServicio": 15,
+  "totalPrice": 442,
+  "estado": "Tomado",
+  "fechaSolicitud": "1/8/2023",
+  "fechaEntrega": "",
+  "horaEntrega": ""
+},
+{
+  "_id": {
+    "$oid": "64e6db4553425aca73de59df"
+  },
+  "numeroOrden": "3",
+  "nombreCliente": "Sara Ochoa",
+  "correoCliente": "saraochoa@gmail.com",
+  "celularCliente": "+504 3333-3333",
+  "ubicacion": "col. El pedregal, calle principal continuo a ferreteria indufesa",
+  "productos": [
+    {
+      "nombreProducto": "Deluxe",
+      "descripcion": "sabor exquisito",
+      "cantidad": 1,
+      "precio": 299
+    }
+  ],
+  "comisionGestion": 10,
+  "comisionServicio": 15,
+  "totalPrice": 324,
+  "estado": "Pendiente",
+  "fechaSolicitud": "2/8/2023",
+  "fechaEntrega": "",
+  "horaEntrega": ""
+},
+{
+  "_id": {
+    "$oid": "64e6db4553425aca73de59e0"
+  },
+  "numeroOrden": "4",
+  "nombreCliente": "Julio Lopez",
+  "correoCliente": "Julio@gmail.com",
+  "celularCliente": "+504 4444-4444",
+  "ubicacion": "Pedegral",
+  "productos": [
+    {
+      "nombreProducto": "Desayuno Campero",
+      "descripcion": "sabor Rico",
+      "cantidad": 3,
+      "precio": 267
+    },
+    {
+      "nombreProducto": "Tostadas Francesas",
+      "descripcion": "Sabor Rico",
+      "cantidad": 2,
+      "precio": 198
+    }
+  ],
+  "comisionGestion": 10,
+  "comisionServicio": 15,
+  "totalPrice": 490,
+  "estado": "Tomado",
+  "fechaSolicitud": "3/8/2023",
+  "fechaEntrega": "",
+  "horaEntrega": ""
+},
+{
+  "_id": {
+    "$oid": "64e92b03c4c56fc5a8e8a2c6"
+  },
+  "numeroOrden": "5",
+  "nombreCliente": "Abraham Daeva",
+  "correoCliente": "Abraham@outlook.com",
+  "celularCliente": "+504 5555-5555",
+  "ubicacion": "Efes",
+  "productos": [
+    {
+      "nombreProducto": "Clásica Jamón",
+      "descripcion": "Sabor Exquisito",
+      "cantidad": 1,
+      "precio": 139
+    }
+  ],
+  "comisionGestion": 70,
+  "comisionServicio": 80,
+  "totalPrice": 289,
+  "estado": "Entregado",
+  "fechaSolicitud": "25/8/2023",
+  "fechaEntrega": "26/8/2023",
+  "horaEntrega": "10:30 AM"
+},
+{
+  "_id": {
+    "$oid": "64e92b03c4c56fc5a8e8a2c7"
+  },
+  "numeroOrden": "6",
+  "nombreCliente": "Allfred Libertity",
+  "correoCliente": "AllFree@hotmail.com",
+  "celularCliente": "+504 6666-6666",
+  "ubicacion": "Guanacaste",
+  "productos": [
+    {
+      "nombreProducto": "Hawaiana",
+      "descripcion": "Sabor Exquisito",
+      "cantidad": 3,
+      "precio": 837
+    },
+    {
+      "nombreProducto": "pepperoni",
+      "descripcion": "Sabor Exquisito",
+      "cantidad": 3,
+      "precio": 837
+    }
+  ],
+  "comisionGestion": 30,
+  "comisionServicio": 45,
+  "totalPrice": 1749,
+  "estado": "Pendiente",
+  "fechaSolicitud": "1/8/2023",
+  "fechaEntrega": "",
+  "horaEntrega": ""
+},
+{
+  "_id": {
+    "$oid": "64e92b03c4c56fc5a8e8a2c8"
+  },
+  "numeroOrden": "7",
+  "nombreCliente": "Daniel Ailel",
+  "correoCliente": "Daniel@hotmail.com",
+  "celularCliente": "+504 7777-7777",
+  "ubicacion": "Ain",
+  "productos": [
+    {
+      "nombreProducto": "Dam Jayah",
+      "descripcion": "Bolsa de Agua Viva",
+      "cantidad": 5,
+      "precio": 358
+    }
+  ],
+  "comisionGestion": 70,
+  "comisionServicio": 80,
+  "totalPrice": 1074,
+  "estado": "Pendiente",
+  "fechaSolicitud": "1/8/2023",
+  "fechaEntrega": "",
+  "horaEntrega": ""
+},
+{
+  "_id": {
+    "$oid": "64e92b03c4c56fc5a8e8a2c9"
+  },
+  "numeroOrden": "8",
+  "nombreCliente": "Nykol Valladoresh",
+  "correoCliente": "Nykol@outlook.com",
+  "celularCliente": "+504 8888-8888",
+  "ubicacion": "Cerro Alto",
+  "productos": [
+    {
+      "nombreProducto": "Classic CheeseBurguer",
+      "descripcion": "Hamburguesa con un rico sabor",
+      "cantidad": 2,
+      "precio": 408
+    },
+    {
+      "nombreProducto": "Chicken Bacon Classic",
+      "descripcion": "Hamburguesa con un rico sabor",
+      "cantidad": 1,
+      "precio": 250
+    }
+  ],
+  "comisionGestion": 20,
+  "comisionServicio": 25,
+  "totalPrice": 703,
+  "estado": "Entregado",
+  "fechaSolicitud": "26/8/2023",
+  "fechaEntrega": "26/8/2023",
+  "horaEntrega": "11:10 AM"
+},
+{
+  "_id": {
+    "$oid": "64e92b03c4c56fc5a8e8a2ca"
+  },
+  "numeroOrden": "10",
+  "nombreCliente": "Juliana Romanov",
+  "correoCliente": "Juliana@hotmail.com",
+  "celularCliente": "+504 1010-1010",
+  "ubicacion": "Villa Actual",
+  "productos": [
+    {
+      "nombreProducto": "APPLE PIE",
+      "descripcion": "Sabor Rico",
+      "cantidad": 1,
+      "precio": 35
+    }
+  ],
+  "comisionGestion": 10,
+  "comisionServicio": 15,
+  "totalPrice": 60,
+  "estado": "Tomado",
+  "fechaSolicitud": "3/8/2023",
+  "fechaEntrega": "",
+  "horaEntrega": ""
+},
+{
+  "_id": {
+    "$oid": "64e92b03c4c56fc5a8e8a2cb"
+  },
+  "numeroOrden": "11",
+  "nombreCliente": "Marcela Gandara",
+  "correoCliente": "Marcela@hotmail.com",
+  "celularCliente": "+504 0011-0011",
+  "ubicacion": "Villa Nula",
+  "productos": [
+    {
+      "nombreProducto": "Cheesecake Frutas",
+      "descripcion": "Sabor Rico",
+      "cantidad": 2,
+      "precio": 140
+    }
+  ],
+  "comisionGestion": 18,
+  "comisionServicio": 22,
+  "totalPrice": 180,
+  "estado": "Entregado",
+  "fechaSolicitud": "3/8/2023",
+  "fechaEntrega": "25/7/2023",
+  "horaEntrega": "12:00PM"
+}]

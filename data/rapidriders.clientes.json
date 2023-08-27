@@ -1,0 +1,102 @@
+[{
+  "_id": {
+    "$oid": "64e65c3f81a04d63a9687e2c"
+  },
+  "nombre": "Pedro",
+  "apellido": "Martinez",
+  "identificacion": "0801199578654",
+  "fotoPerfil": "recursos/img/img_perfiles/1.jpg",
+  "telefono": "95325632",
+  "correoElectronico": "pedromartinez@gmail.com",
+  "contrasena": "1234@",
+  "numeroTarjeta": {
+    "$numberLong": "4980778578963422"
+  },
+  "expira": "09-25",
+  "cvv": "071",
+  "ordenes": []
+},
+{
+  "_id": {
+    "$oid": "64e65c3f81a04d63a9687e2d"
+  },
+  "nombre": "Maria",
+  "apellido": "Duarte",
+  "identificacion": "0801199223454",
+  "fotoPerfil": "recursos/img/img_perfiles/1.jpg",
+  "correoElectronico": "Maria@hotmail.com",
+  "contrasena": "duarte24",
+  "numeroTarjeta": "4980776702342345",
+  "expira": "07",
+  "mes": "08",
+  "cvv": "072",
+  "ordenes": []
+},
+{
+  "_id": {
+    "$oid": "64e65c3f81a04d63a9687e2e"
+  },
+  "nombre": "Sara",
+  "apellido": "Ochoa",
+  "identificacion": "0801198978654",
+  "fotoPerfil": "recursos/img/img_perfiles/1.jpg",
+  "correoElectronico": "saraochoa@gmail.com",
+  "contrasena": "Diosesamor123",
+  "numeroTarjeta": "4067675476543422",
+  "expira": "19",
+  "mes": "05",
+  "cvv": "073",
+  "ordenes": []
+},
+{
+  "_id": {
+    "$oid": "64e65c3f81a04d63a9687e2f"
+  },
+  "nombre": "Julio",
+  "apellido": "Lopez",
+  "identificacion": "0801198978654",
+  "fotoPerfil": "recursos/img/img_perfiles/1.jpg",
+  "correoElectronico": "Julio@gmail.com",
+  "contrasena": "julio123",
+  "numeroTarjeta": "4067675408976645",
+  "expira": "18",
+  "mes": "05",
+  "cvv": "074",
+  "ordenes": []
+},
+{
+  "_id": {
+    "$oid": "64e65c51d2cc977fe379a208"
+  },
+  "nombre": "Manuel",
+  "apellido": "Henriquez",
+  "identificacion": "0826199700336",
+  "fotoPerfil": "recursos/img/img_perfiles/6.jpg",
+  "correoElectronico": "mhenriquez@gmail.com",
+  "contrasena": "manuel@3312",
+  "numeroTarjeta": {
+    "$numberLong": "4067675408976645"
+  },
+  "expira": "18",
+  "cvv": "074",
+  "ordenes": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64e8eddf90fed62ee5531d7b"
+  },
+  "nombre": "Manuel",
+  "apellido": "Henriquez",
+  "identificacion": "0826199700336",
+  "fotoPerfil": "recursos/img/img_perfiles/6.jpg",
+  "correoElectronico": "mhenriquez@gmail.com",
+  "contrasena": "manuel@3312",
+  "numeroTarjeta": {
+    "$numberLong": "4067675408976645"
+  },
+  "expira": "18",
+  "cvv": "074",
+  "ordenes": [],
+  "__v": 0
+}]

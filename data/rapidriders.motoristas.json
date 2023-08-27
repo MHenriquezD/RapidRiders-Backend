@@ -1,0 +1,61 @@
+[{
+  "_id": {
+    "$oid": "64e6ddfb53425aca73de59eb"
+  },
+  "nombre": "Susan",
+  "apellido": "Cid",
+  "imagenPerfil": "img",
+  "identificacion": "0801197198672",
+  "fechaNacimiento": "12-01-1971",
+  "correo": "susan@unah.hn",
+  "password": "susan8888",
+  "celular": "+504 9900-1122",
+  "descripcionVehiculo": "Moto Honda",
+  "placaVehiculo": "AFD2340",
+  "ordenes": [
+    {
+      "_id": {
+        "$oid": "64e6db4553425aca73de59e0"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "64e6db4553425aca73de59e0"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64e6ddfb53425aca73de59ec"
+  },
+  "nombre": "Manuel",
+  "apellido": "Leunma",
+  "imagenPerfil": "img",
+  "identificacion": "0801199207865",
+  "fechaNacimiento": "12-05-1992",
+  "correo": "Manuel@unah.hn",
+  "password": "manuel8888",
+  "celular": "+504 8899-0000",
+  "descripcionVehiculo": "Moto genesis",
+  "placa": "FSG2543",
+  "ordenes": [
+    {
+      "_id": {
+        "$oid": "64e92b03c4c56fc5a8e8a2c8"
+      }  
+    },
+    {
+      "_id": {
+        "$oid": "64e92b03c4c56fc5a8e8a2c9"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "64e92b03c4c56fc5a8e8a2ca"
+      }
+    }
+
+
+  ]
+}]
